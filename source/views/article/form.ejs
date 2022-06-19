@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Recruiter-Form</title>
+    <style>
+        h1{ 
+            color:red;
+            font-weight: bolder;
+            width: 25%;
+            margin:20px auto;
+        }
+        body{
+            background: url('/assets/bg4.png');
+        }
+        .second{
+            display: flex;
+            margin:20px 300px;
+        }
+        .second a{
+            text-decoration: none;
+            margin:20px 40px ;
+            font-size: 24px;
+            color: blue;
+            font-weight: bold;
+        }
+        .second a:hover{
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <%-include ("header")%>
+    <div class="container">
+       <h1 class="mb-4">Recruiter Form</h1>
+       <form action="/article/job" method="POST">
+        <div class="form-group">
+            <label for="title">Job Title</label>
+            <input required value="<%= article.title %>" type="text" name="title" id="title" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="description">Location</label>
+            <textarea name="description" id="description" class="form-control"><%= article.description %></textarea>
+            
+        </div>
+        <div class="form-group">
+            <label for="markdown">Job Description</label>
+            <textarea required name="markdown" id="markdown" class="form-control"><%= article.markdown %></textarea>
+            
+        </div><br>
+        <a href="/" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-primary">Save</button>
+       </form>
+    </div>
+</body>
+</html>

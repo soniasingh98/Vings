@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Jobs</title>
+    <style>
+        h1{ color:red;
+            width:10%;
+            margin:10px auto;
+            font-weight: bolder;
+        }
+        
+        body{
+            background: url('/assets/bg2.png');
+        }
+        .second{
+            display: flex;
+            margin:20px 300px;
+        }
+        .second a{
+            text-decoration: none;
+            margin:20px 40px ;
+            font-size: 24px;
+            color: black;
+            font-weight: bold;
+        }
+        .second a:hover{
+            color: blue;
+        }
+        .my{
+            background: url('assets/bg4.png');
+        }
+        .title{
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        .location{
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .date{
+            font-size: 1rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <%-include ("header")%>
+    <div class="container">
+        <h1 class="mb-4">Jobs</h1>
+      
+        <% article.forEach(article=>{ %>
+           <div class="card mt-4 my">
+               <div class="card-body">
+                  <h4 class="card-title title"> <%= article.title %></h4>
+                  <div class="cardsubtitle text-muted mb-2 date">
+                      <%= article.createdat.toLocaleDateString() %>
+                  </div>
+                  <div class="card-text mb-2 location">
+                      <%= article.description %>
+                    </div>
+                      <a href="article/<%= article.slug %>" class="btn btn-primary">Read More</a>
+                    
+               </div>
+           </div>
+        <%}) %>
+    </div>
+</body>
+</html>
